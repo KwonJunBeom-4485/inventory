@@ -55,7 +55,7 @@ jobs:
                 nginx -t && systemctl reload nginx,
                 chmod +x /opt/app/gradlew,
                 cd /opt/app/,
-                gradlew bootJar,
+                ./gradlew bootJar,
                 export $(cat .env | xargs) && java -jar build/libs/inventory-app.jar &,
                 sleep 30,
                 curl -sf http://localhost:8080/actuator/health]' \
